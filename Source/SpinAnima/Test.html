@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> FLOAT_MENU</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="Test.css" />
+
+    <script>
+        var manualSize = function() {
+            var appVer = (navigator.appVersion);
+            var isHigherVersion = /Android ([5-9]|([1-9]\d{1,}))|iPhone OS ([8-9]|([1-9]\d{1,}))/.test(appVer);
+            if (isHigherVersion) {
+                return;
+            }
+
+            var deviceWidth = window.orientation == 0 ? window.innerWidth : window.innerHeight;
+
+            var w75px = deviceWidth * 0.75 + "px",
+                w70px = deviceWidth * 0.7 + "px",
+                w35px = deviceWidth * 0.35 + "px",
+                w24px = deviceWidth * 0.24 + "px",
+                w23px = deviceWidth * 0.23 + "px";
+
+            var node = document.getElementById("circleMenuWrapper");
+            node.style.width = w75px;
+
+            node = document.getElementById("spinAnimaWrapperLeft");
+            node.style.width = w70px;
+            node.style.height = w70px;
+            node.style.clip = "rect(0px," + w35px + ", " + w70px + ", 0px)";
+
+            node = document.getElementById("spinAnimaWrapperRight");
+            node.style.width = w70px;
+            node.style.height = w70px;
+            node.style.clip = "rect(0px," + w70px + ", " + w70px + ", " + w35px + ")";
+
+            var nodes = document.getElementsByClassName("spinAnimaCircle");
+            for (var idx = 0; idx < nodes.length; idx++) {
+                var item = nodes[idx];
+                item.style.width = w23px;
+                item.style.height = w23px;
+                item.style.clip = "rect(0px," + w35px + ", " + w70px + ", 0px)";
+                item.style.border = w23px + " solid rgba(0, 0, 0, 0.4)"
+            }
+        }
+
+        var reAnima = function() {
+            var oldView = document.getElementById("circleMenuWrapper");
+            var newOne = oldView.cloneNode(true);
+            oldView.parentNode.replaceChild(newOne, oldView);
+        }
+
+        var beginAnima = function() {
+            var nodes = document.getElementsByClassName("animaCTRL");
+            var distNode = [];
+
+            for (var idx = 0; idx < nodes.length; idx++) {
+                distNode.push(nodes.item(idx));
+            }
+
+            distNode.forEach(function(node, idx, arr) {
+                node.classList.remove("animaCTRL");
+            })
+        }
+    </script>
+</head>
+
+<body onload="manualSize()">
+
+    <div id="ttt"></div>
+    <div id="Wrapper">
+
+        <div id="circleMenuWrapper">
+
+            <div id="spinAnimaWrapperLeft" class="spinAnimaWrapper">
+                <div id="spinAnimaLeft" class="spinAnimaCircle animaCTRL"></div>
+            </div>
+
+            <div id="spinAnimaWrapperRight" class="spinAnimaWrapper">
+                <div id="spinAnimaRight" class="spinAnimaCircle animaCTRL"></div>
+            </div>
+
+            <div>
+                <button onclick="reAnima()">Re-Anima</button>
+                <button onclick="beginAnima()">Begin-Anima</button>
+            </div>
+
+            <div id="LOGO"></div>
+
+            <div id="MEMBER" class="menuItem animaCTRL">
+                <a href="MBFlierFMWK://floatingWin&url=http%3A%2F%2F210.242.72.152%2FFLOAT%2FLogin%2FindexLogin.html">
+                    <div class="content"><i class="fa fa-user" aria-hidden="true"></i>
+                        <div class="menuText">會員</div>
+                    </div>
+                </a>
+            </div>
+
+            <div id="SALE" class="menuItem animaCTRL">
+                <a href="MBFlierFMWK://floatingWin&url=http%3A%2F%2F210.242.72.152%2FLOAT/Game%2Game.html">
+                    <div class="content"><i class="fa fa-gift" aria-hidden="true"></i>
+                        <div class="menuText">好康</div>
+                    </div>
+                </a>
+            </div>
+
+            <div id="SHARE" class="menuItem animaCTRL">
+                <a href="MBFlierFMWK://floatingWin&url=http%3A%2F%2Fwww.gamer.com.tw">
+                    <div class="content"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+                        <div class="menuText">分享</div>
+                    </div>
+                </a>
+            </div>
+
+            <div id="NEWS" class="menuItem animaCTRL">
+                <a href="MBFlierFMWK://floatingWin&url=http%3A%2F%2Fwww.gamer.com.tw">
+                    <div class="content"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
+                        <div class="menuText">消息</div>
+                    </div>
+                </a>
+            </div>
+
+            <div id="MORE" class="menuItem animaCTRL">
+                <a href="MBFlierFMWK://floatingWin&url=http%3A%2F%2Fwww.books.com.tw">
+                    <div class="content"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                        <div class="menuText">其他</div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div id="CLOSE" class="menuItem animaCTRL">
+                <a href="">
+                    <div class="content"><i class="fa fa-times" aria-hidden="true"></i>
+                        <div class="menuText">關閉</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

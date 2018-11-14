@@ -1,0 +1,239 @@
+.animaCTRL {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+#circleMenuWrapper:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+#circleMenuWrapper {
+    width: 75vmin;
+    /*background-color: gray;*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.spinAnimaWrapper {
+    width: 70vmin;
+    height: 70vmin;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#spinAnimaWrapperLeft {
+    clip: rect(0px, 35vmin, 70vmin, 0px);
+}
+
+#spinAnimaWrapperRight {
+    clip: rect(0px, 70vmin, 70vmin, 35vmin);
+}
+
+.spinAnimaCircle {
+    width: 23vmin;
+    height: 23vmin;
+    border-radius: 50%;
+    border: 23vmin solid rgba(0, 0, 0, 0.3);
+    /*opacity: 0.7;*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 150ms;
+    animation-duration: 150ms;
+    clip: rect(0px, 35vmin, 70vmin, 0px);
+}
+
+#spinAnimaRight {
+    -webkit-animation-name: right-spin;
+    animation-name: right-spin;
+}
+
+#spinAnimaLeft {
+    opacity: 0;
+    transform: rotate(180deg);
+    -webkit-animation-delay: 170ms;
+    animation-delay: 170ms;
+    -webkit-animation-name: left-spin;
+    animation-name: left-spin;
+}
+
+@-webkit-keyframes right-spin {
+    from {
+        opacity: 0;
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: rotate(180deg);
+    }
+}
+
+@keyframes right-spin {
+    from {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+
+@-webkit-keyframes left-spin {
+    from {
+        opacity: 0;
+        -webkit-transform: rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes left-spin {
+    from {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+/*.menuItem:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 50%;
+    height: 100%;
+}*/
+
+.menuItem {
+    position: absolute;
+    margin: auto;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    /*background-color: #6432AA;*/
+    /*color: white;*/
+    /*base in 300ms,  300 * 0.75*/
+    -webkit-animation-delay: 225ms;
+    -webkit-animation-duration: 600ms;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease;
+    animation-delay: 225ms;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/*=====menu item 12 o'clock, 9 o'clock=====*/
+
+#MEMBER {
+    -webkit-animation-name: moveTo12, menuItem;
+    animation-name: moveTo12, menuItem;
+}
+
+#SALE {
+    -webkit-animation-name: moveTo9, menuItem;
+    animation-name: moveTo9, menuItem;
+}
+
+#SHARE {
+    -webkit-animation-name: moveTo7, menuItem;
+    animation-name: moveTo7, menuItem;
+}
+
+#NEWS {
+    -webkit-animation-name: moveTo5, menuItem;
+    animation-name: moveTo5, menuItem;
+}
+
+#MORE {
+    -webkit-animation-name: moveTo3, menuItem;
+    animation-name: moveTo3, menuItem;
+}
+
+#CLOSE {
+    -webkit-animation-name: moveTo1, menuItem;
+    animation-name: moveTo1, menuItem;
+}
+
+@-webkit-keyframes menuItem {
+    to {
+        width: 20%;
+    }
+}
+
+@-webkit-keyframes moveTo12 {
+    to {
+        left: -50%;
+        top: -50%;
+    }
+}
+
+@-webkit-keyframes moveTo9 {
+    to {
+        left: 0%;
+        top: -68%;
+    }
+}
+
+@-webkit-keyframes moveTo7 {
+    to {
+        left: 53%;
+        top: -35%;
+    }
+}
+
+@-webkit-keyframes moveTo5 {
+    to {
+        left: 50%;
+        top: 20%;
+    }
+}
+
+@-webkit-keyframes moveTo3 {
+    to {
+        left: 0%;
+        top: 48%;
+    }
+}
+
+@-webkit-keyframes moveTo1 {
+    to {
+        /*left: -70%;
+        top: 52%;*/
+        left: -50%;
+        top: 20%;
+    }
+}
